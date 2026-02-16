@@ -1,0 +1,348 @@
+.app-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 2rem;
+  perspective: 1000px;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  padding: 2.5rem;
+  color: white;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.8s ease-out;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+}
+
+.search-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.search-container {
+  position: relative;
+  flex: 1;
+}
+
+.location-btn {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.location-btn:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #6366f1;
+}
+
+.search-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  padding-left: 3rem;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.weather-main {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.city-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to bottom right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.weather-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weather-date {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 1.5rem;
+}
+
+.weather-temp-container {
+  margin-top: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-icon-main {
+  margin-bottom: 0.5rem;
+  color: #6366f1;
+  filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.3));
+}
+
+.temp-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.temp-value {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.temp-unit {
+  font-size: 2rem;
+  color: #6366f1;
+  font-weight: 600;
+  margin-top: 0.8rem;
+  margin-left: 0.2rem;
+}
+
+.weather-desc {
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+  color: #cbd5e1;
+  text-transform: capitalize;
+}
+
+.weather-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6366f1;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.error-container {
+  text-align: center;
+  padding: 2rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-msg {
+  color: #ef4444;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.retry-btn {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-family: inherit;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+  background: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-bottom-color: #6366f1;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .weather-card {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .search-header {
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .location-btn {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .search-input {
+    padding: 0.75rem 1rem 0.75rem 2.8rem;
+    font-size: 0.95rem;
+  }
+
+  .city-name {
+    font-size: 2rem;
+  }
+
+  .temp-value {
+    font-size: 4.5rem;
+  }
+
+  .temp-unit {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    margin-left: 0.1rem;
+  }
+
+  .weather-desc {
+    font-size: 1.1rem;
+  }
+
+  .weather-stats {
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .stat-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .stat-value {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .weather-stats {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
